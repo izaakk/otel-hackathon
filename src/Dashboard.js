@@ -26,8 +26,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://intel.com">
+        Intel Corporation
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -162,7 +162,7 @@ function DashboardContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
+              {/* Chart
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
                   sx={{
@@ -174,8 +174,8 @@ function DashboardContent() {
                 >
 
                 </Paper>
-              </Grid>
-              {/* Recent Deposits */}
+              </Grid> */}
+              {/* Recent Deposits
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -187,8 +187,8 @@ function DashboardContent() {
                 >
                   <Deposits />
                 </Paper>
-              </Grid>
-              {/* Recent Orders */}
+              </Grid> */}
+              {/* Active Environments Box */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Orders />
