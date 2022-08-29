@@ -15,7 +15,7 @@ import Faq from './Faq';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton href="" onClick={<Dashboard />}>
+    <ListItemButton href="/" onClick={<Dashboard />}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
