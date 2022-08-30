@@ -21,7 +21,8 @@ export default function FaqForm() {
             <div class="env-form-container">
               <form>
                 <label>
-                  How to Create a New Environment 
+                    <b>
+                  How to Create a New Environment </b>
                 </label> 
                 <p>
                     lorem ipsum dolor. lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.
@@ -30,16 +31,18 @@ export default function FaqForm() {
             </div>
           </TableRow>
           <TableRow>
-            <label>
+            <label><b>
             How to Use API Key
+            </b>
             </label>
             <p>
             lorem ipsum dolor. lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.
             </p>
           </TableRow>
           <TableRow>
-            <label>
-            How to Access Archived Environments
+            <label> <b>
+            How to Access Archived Environments 
+            </b>
             </label>
             <p>
             lorem ipsum dolor. lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.lorem ipsum dolor.

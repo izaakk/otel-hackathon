@@ -19,6 +19,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import ProfileForm from './ProfileForm';
+import ProfilePic from './ProfilePic';
 
 function Copyright(props) {
     return (
@@ -163,7 +164,9 @@ function CreateProfileContent() {
 
               <Grid container spacing={1}>
                 <Grid item xs={12}>
-                  <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                  <Paper sx={{ p: 2, display: 'flex-box', flexDirection: 'row' }}>
+                   
+                    <ProfilePic />
                     <ProfileForm />
                   </Paper>
                 </Grid>
