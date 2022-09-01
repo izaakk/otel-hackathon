@@ -19,6 +19,14 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import Environments from './Environments';
+import { Amplify } from 'aws-amplify';
+
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
+
 
 function Copyright(props) {
   return (
@@ -81,13 +89,14 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-function DashboardContent() {
+function Dashboard({signOut, user}) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
   return (
+    
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
@@ -108,6 +117,10 @@ function DashboardContent() {
               }}
             >
               <MenuIcon />
+              <>
+                <h1>Hello {user.username}</h1>
+                <button onClick={signOut}>Sign out</button>
+              </>
             </IconButton>
             <Typography
               component="h1"
@@ -202,6 +215,4 @@ function DashboardContent() {
   );
 }
 
-export default function Dashboard() {
-  return <DashboardContent />;
-}
+export default withAuthenticator(Dashboard);
