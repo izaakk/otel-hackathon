@@ -1,0 +1,20 @@
+type ExperimentEnv @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  description: String
+  type: String!
+  region: String!
+  metrics: Boolean
+  traces: Boolean
+  log: Boolean
+  tenantID: ID! @index(name: "byTenant")
+}
+
+type Tenant @model @auth(rules: [{allow: public}, {allow: private}]) {
+  id: ID!
+  name: String!
+  geo: String!
+  role: String!
+  businessunit: String!
+  experiments: [ExperimentEnv] @hasMany(indexName: "byTenant", fields: ["id"])
+} 

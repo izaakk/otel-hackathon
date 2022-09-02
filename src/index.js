@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import Dashboard from './Dashboard'
+import Profile from './Profile';
+import Faq from './Faq';
+import CreateEnv from './CreateEnv';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
 import { Amplify, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
@@ -11,7 +17,15 @@ Amplify.configure(awsconfig);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Dashboard />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/faq' element={<Faq />} />
+        <Route path='/create-env' element={<CreateEnv />} />
+      </Routes>
+    </BrowserRouter>
+    {/* <Dashboard /> */}
   </React.StrictMode>
 );
 

@@ -18,8 +18,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-//import Chart from './Chart';
-import Deposits from './Deposits';
 import Orders from './Orders';
 import { Amplify } from 'aws-amplify';
 
@@ -34,8 +32,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://intel.com">
+        Intel Corporation
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -119,10 +117,6 @@ function Dashboard({signOut, user}) {
               }}
             >
               <MenuIcon />
-              <>
-                <h1>Hello {user.username}</h1>
-                <button onClick={signOut}>Sign out</button>
-              </>
             </IconButton>
             <Typography
               component="h1"
@@ -175,32 +169,12 @@ function Dashboard({signOut, user}) {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
 
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Deposits />
-                </Paper>
-              </Grid>
+              <>
+                <h1>Hello {user.username}</h1>
+                <button onClick={signOut}>Sign out</button>
+              </>
+
               {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
