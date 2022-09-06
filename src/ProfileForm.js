@@ -9,8 +9,15 @@ import Title from './Title';
 // import { FormLabel } from 'react-bootstrap';
 //import {TableBody, TableRow } from '@mui/material';
 
+import { Amplify } from 'aws-amplify';
 
-export default function ProfileForm() {
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
+
+function ProfileForm({signOut, user}) {
 
   return (
     <React.Fragment>
@@ -27,9 +34,25 @@ export default function ProfileForm() {
                 Name 
             </h3> 
             <h4>
-                Jerry
+              {user.attributes.name}
             </h4>
         </div>
+        <div style = {{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignContent: 'stretch',
+                flexWrap: 'nowrap',
+                alignItems: 'center',
+                marginRight: 220, }}>
+                
+                <h3>
+                Email Address
+                </h3>
+                <h4>
+                {user.attributes.email}
+                </h4>
+                </div>
         <div style = {{
                 display: 'flex',
                 flexDirection: 'row',
@@ -76,8 +99,12 @@ export default function ProfileForm() {
                 9
             </h4>
                 </div>
+                <button onClick={signOut}>Sign out</button>
             
     </React.Fragment>
     
   );
 }
+
+
+export default withAuthenticator(ProfileForm)

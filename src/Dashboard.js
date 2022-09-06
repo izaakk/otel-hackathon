@@ -171,9 +171,9 @@ function Dashboard({signOut, user}) {
             <Grid container spacing={3}>
 
               <>
-                <h1>Hello {user.username}</h1>
-                <button onClick={signOut}>Sign out</button>
+                <h1>Hello {user.attributes.name}</h1>
               </>
+              
 
               {/* Recent Orders */}
               <Grid item xs={12}>
