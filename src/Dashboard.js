@@ -175,15 +175,7 @@ function Dashboard({signOut, user}) {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               <>
-<<<<<<< HEAD
                 <h1>Hello {user.attributes.name}</h1>
-=======
-                <h1>Hello, {user.attributes.name}</h1>
-                <button onClick={signOut}>Sign out</button>
-                {/* <ListItemButton sx={{ backgroundColor: '#3385ff'}} onClick={SignOut}>
-                  <ListItemText primary="Sign Out" style={{ color: '#ffffff' }}/>
-                </ListItemButton> */}
->>>>>>> 75a2c0197298378d829712ccad2882de7dedf7e8
               </>
               
 

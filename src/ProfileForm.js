@@ -1,12 +1,9 @@
 import * as React from 'react';
 import Title from './Title';
 
-<<<<<<< HEAD
 import { Amplify } from 'aws-amplify';
-=======
 import { DataStore } from '@aws-amplify/datastore';
 import { Tenant } from './models';
->>>>>>> 75a2c0197298378d829712ccad2882de7dedf7e8
 
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
