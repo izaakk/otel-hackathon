@@ -1,14 +1,8 @@
 import * as React from 'react';
-// import useState from 'react';
-// import Link from '@mui/material/Link';
-//import Table from '@mui/material/Table';
-// import TableBody from '@mui/material/TableBody';
-// import TableRow from '@mui/material/TableRow';
 import Title from './Title';
-// import Form from '@mui/material/FormGroup'
-// import { FormLabel } from 'react-bootstrap';
-//import {TableBody, TableRow } from '@mui/material';
 
+import { DataStore } from '@aws-amplify/datastore';
+import { Tenant } from './models';
 
 export default function ProfileForm() {
 
