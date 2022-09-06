@@ -4,6 +4,8 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import Title from './Title';
 import { ListItemButton, ListItemText, TableBody, TableRow } from '@mui/material';
+import { DataStore } from '@aws-amplify/datastore';
+import { ExperimentEnv } from './models';
 
 // Form for user to create new environment
 
@@ -13,6 +15,21 @@ import { ListItemButton, ListItemText, TableBody, TableRow } from '@mui/material
 // function preventDefault(event) {
 //   event.preventDefault();
 // }
+
+async function newEnv(tenantID, name, desc, type, region, metrics, traces, logs) {
+    await DataStore.save(
+        new ExperimentEnv({
+            "name": name,
+            "description": desc,
+            "type": type,
+            "region": region,
+            "metrics": metrics,
+            "traces": traces,
+            "log": logs,
+            "tenantID": tenantID  // get user id in here
+        })
+    );
+}
 
 export default function EnvForm() {
 
@@ -83,6 +100,8 @@ export default function EnvForm() {
       <TableBody>
         <TableRow>
           <TableCell>
+
+            {/* add event listener -> creates new model instance? */}
             <ListItemButton sx={{ backgroundColor: '#3385ff'}} >
               <ListItemText primary="Create" style={{ color: '#ffffff' }}/>
             </ListItemButton>

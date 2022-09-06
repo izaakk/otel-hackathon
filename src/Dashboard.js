@@ -18,15 +18,20 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
+import { ListItemText, ListItemButton } from '@mui/material';
 import Orders from './Orders';
 import { Amplify } from 'aws-amplify';
+
+// import { DataStore } from '@aws-amplify/datastore';
+// import { Tenant } from './models';
+
+// import { ExperimentEnv } from './models';
 
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
 import awsExports from './aws-exports';
 Amplify.configure(awsExports);
-
 
 function Copyright(props) {
   return (
@@ -169,9 +174,16 @@ function Dashboard({signOut, user}) {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-
               <>
+<<<<<<< HEAD
                 <h1>Hello {user.attributes.name}</h1>
+=======
+                <h1>Hello, {user.attributes.name}</h1>
+                <button onClick={signOut}>Sign out</button>
+                {/* <ListItemButton sx={{ backgroundColor: '#3385ff'}} onClick={SignOut}>
+                  <ListItemText primary="Sign Out" style={{ color: '#ffffff' }}/>
+                </ListItemButton> */}
+>>>>>>> 75a2c0197298378d829712ccad2882de7dedf7e8
               </>
               
 

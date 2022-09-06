@@ -1,15 +1,12 @@
 import * as React from 'react';
-// import useState from 'react';
-// import Link from '@mui/material/Link';
-//import Table from '@mui/material/Table';
-// import TableBody from '@mui/material/TableBody';
-// import TableRow from '@mui/material/TableRow';
 import Title from './Title';
-// import Form from '@mui/material/FormGroup'
-// import { FormLabel } from 'react-bootstrap';
-//import {TableBody, TableRow } from '@mui/material';
 
+<<<<<<< HEAD
 import { Amplify } from 'aws-amplify';
+=======
+import { DataStore } from '@aws-amplify/datastore';
+import { Tenant } from './models';
+>>>>>>> 75a2c0197298378d829712ccad2882de7dedf7e8
 
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
