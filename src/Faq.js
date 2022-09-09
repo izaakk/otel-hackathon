@@ -9,12 +9,11 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { mainListItems, secondaryListItems } from './listItems';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -119,10 +118,8 @@ function CreateFaqContent() {
               >
                 Frequently Asked Questions
               </Typography>
-              <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
+              <IconButton color="inherit" href="profile">
+                  <AccountCircleIcon />
               </IconButton>
             </Toolbar>
           </AppBar>

@@ -1,8 +1,4 @@
-import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
-
-
-
-
+import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 
 type ExperimentEnvMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
@@ -18,9 +14,9 @@ export declare class ExperimentEnv {
   readonly description?: string | null;
   readonly type: string;
   readonly region: string;
-  readonly metrics?: boolean | null;
-  readonly traces?: boolean | null;
-  readonly log?: boolean | null;
+  readonly metrics: boolean;
+  readonly traces: boolean;
+  readonly log: boolean;
   readonly tenantID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -35,6 +31,7 @@ export declare class Tenant {
   readonly role: string;
   readonly businessunit: string;
   readonly experiments?: (ExperimentEnv | null)[] | null;
+  readonly email: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Tenant, TenantMetaData>);

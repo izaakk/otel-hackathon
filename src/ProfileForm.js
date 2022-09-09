@@ -4,6 +4,9 @@ import Title from './Title';
 import { Amplify } from 'aws-amplify';
 import { DataStore } from '@aws-amplify/datastore';
 import { Tenant } from './models';
+import { 
+  EditProfile 
+} from './ui-components';
 
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
@@ -16,6 +19,9 @@ function ProfileForm({signOut, user}) {
   return (
     <React.Fragment>
       <Title>Welcome to Your Profile</Title>
+      <div>
+      <EditProfile />
+      </div>
       <div style = {{
                 display: 'flex',
                 flexDirection: 'row',
