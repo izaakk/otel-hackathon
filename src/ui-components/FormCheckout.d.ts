@@ -5,8 +5,8 @@
  **************************************************************************/
 
 import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ExperimentEnv } from "../models";
+import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type FormCheckoutProps = React.PropsWithChildren<Partial<FlexProps> & {
     EnvName?: String;

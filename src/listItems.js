@@ -4,9 +4,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import PeopleIcon from '@mui/icons-material/People';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import Badge from '@mui/material/Badge';
 
 export const mainListItems = (
   <React.Fragment>
@@ -20,14 +21,14 @@ export const mainListItems = (
 
     <ListItemButton href="profile">
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItemButton>
 
     <ListItemButton href="faq">
       <ListItemIcon>
-        <PeopleIcon />
+        <QuestionAnswerIcon />
       </ListItemIcon>
       <ListItemText primary="FAQs" />
     </ListItemButton>
@@ -42,7 +43,9 @@ export const secondaryListItems = (
     </ListSubheader>
     <ListItemButton>
       <ListItemIcon>
+        <Badge badgeContent={4} color="secondary">
         <AssignmentIcon />
+        </Badge>
       </ListItemIcon>
       <ListItemText primary="Env Name 1" />
     </ListItemButton>
