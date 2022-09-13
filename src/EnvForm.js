@@ -6,6 +6,7 @@ import Title from './Title';
 import { ListItemButton, ListItemText, TableBody, TableRow } from '@mui/material';
 import { DataStore } from '@aws-amplify/datastore';
 import { ExperimentEnv } from './models';
+import { FormCheckout } from './ui-components';
 
 // Form for user to create new environment
 
@@ -36,7 +37,8 @@ export default function EnvForm() {
   return (
     <React.Fragment>
       <Title>Environment Fields</Title>
-      <Table size="small">
+      <FormCheckout />
+      {/* <Table size="small">
         <TableHead>
         </TableHead>
         <TableBody>
@@ -96,18 +98,18 @@ export default function EnvForm() {
             </TableCell>
           </TableRow>
         </TableBody>
-      </Table>
-      <TableBody>
+      </Table> */}
+      {/* <TableBody>
         <TableRow>
-          <TableCell>
+          <TableCell> */}
 
             {/* add event listener -> creates new model instance? */}
-            <ListItemButton sx={{ backgroundColor: '#3385ff'}} >
+            {/* <ListItemButton sx={{ backgroundColor: '#3385ff'}} >
               <ListItemText primary="Create" style={{ color: '#ffffff' }}/>
             </ListItemButton>
           </TableCell>
         </TableRow>
-      </TableBody>
+      </TableBody> */}
     </React.Fragment>
   );
 }

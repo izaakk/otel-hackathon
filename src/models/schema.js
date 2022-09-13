@@ -42,21 +42,21 @@ export const schema = {
                     "name": "metrics",
                     "isArray": false,
                     "type": "Boolean",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "traces": {
                     "name": "traces",
                     "isArray": false,
                     "type": "Boolean",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "log": {
                     "name": "log",
                     "isArray": false,
                     "type": "Boolean",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "tenantID": {
@@ -169,6 +169,13 @@ export const schema = {
                         "associatedWith": "tenantID"
                     }
                 },
+                "email": {
+                    "name": "email",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -214,6 +221,17 @@ export const schema = {
                                     "delete",
                                     "read"
                                 ]
+                            },
+                            {
+                                "provider": "userPools",
+                                "ownerField": "owner",
+                                "allow": "owner",
+                                "operations": [
+                                    "read",
+                                    "update",
+                                    "delete"
+                                ],
+                                "identityClaim": "cognito:username"
                             }
                         ]
                     }
@@ -223,5 +241,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "cfc26f351b8712924e8b7df184a263dc"
+    "version": "c131dc70f7236a73e801216608757457"
 };
