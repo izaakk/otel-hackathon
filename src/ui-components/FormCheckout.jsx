@@ -8,10 +8,13 @@
 import React from "react";
 import {
   getOverrideProps,
-  useDataStoreDeleteAction,
+  useAuth,
+  useDataStoreCreateAction,
+  useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
 import { ExperimentEnv } from "../models";
 import { schema } from "../models/schema";
+import { useEffect } from "react";
 import {
   Button,
   CheckboxField,
@@ -21,11 +24,84 @@ import {
 } from "@aws-amplify/ui-react";
 export default function FormCheckout(props) {
   const { EnvName, experimentEnv, overrides, ...rest } = props;
-  const createEnvOnClick = useDataStoreDeleteAction({
-    id: experimentEnv?.id,
+  const authAttributes = useAuth().user?.attributes ?? {};
+  const [nameValue, setNameValue] = useStateMutationAction("");
+  const [descriptionValue, setDescriptionValue] = useStateMutationAction("");
+  const [typeValue, setTypeValue] = useStateMutationAction("");
+  const [regionValue, setRegionValue] = useStateMutationAction("");
+  const [metricsChecked, setMetricsChecked] = useStateMutationAction(false);
+  const [tracesChecked, setTracesChecked] = useStateMutationAction(false);
+  const [logsChecked, setLogsChecked] = useStateMutationAction(false);
+  const createEnvOnClick = useDataStoreCreateAction({
+    fields: {
+      name: nameValue,
+      description: descriptionValue,
+      type: typeValue,
+      region: regionValue,
+      metrics: metricsChecked,
+      traces: tracesChecked,
+      log: logsChecked,
+      tenantID: authAttributes["email"],
+    },
     model: ExperimentEnv,
     schema: schema,
   });
+  useEffect(() => {
+    if (
+      nameValue === "" &&
+      experimentEnv !== undefined &&
+      experimentEnv?.name !== undefined
+    )
+      setNameValue(experimentEnv?.name);
+  }, [experimentEnv]);
+  useEffect(() => {
+    if (
+      descriptionValue === "" &&
+      experimentEnv !== undefined &&
+      experimentEnv?.description !== undefined
+    )
+      setDescriptionValue(experimentEnv?.description);
+  }, [experimentEnv]);
+  useEffect(() => {
+    if (
+      typeValue === "" &&
+      experimentEnv !== undefined &&
+      experimentEnv?.type !== undefined
+    )
+      setTypeValue(experimentEnv?.type);
+  }, [experimentEnv]);
+  useEffect(() => {
+    if (
+      regionValue === "" &&
+      experimentEnv !== undefined &&
+      experimentEnv?.region !== undefined
+    )
+      setRegionValue(experimentEnv?.region);
+  }, [experimentEnv]);
+  useEffect(() => {
+    if (
+      metricsChecked === false &&
+      experimentEnv !== undefined &&
+      experimentEnv?.metrics !== undefined
+    )
+      setMetricsChecked(experimentEnv?.metrics);
+  }, [experimentEnv]);
+  useEffect(() => {
+    if (
+      tracesChecked === false &&
+      experimentEnv !== undefined &&
+      experimentEnv?.traces !== undefined
+    )
+      setTracesChecked(experimentEnv?.traces);
+  }, [experimentEnv]);
+  useEffect(() => {
+    if (
+      logsChecked === false &&
+      experimentEnv !== undefined &&
+      experimentEnv?.log !== undefined
+    )
+      setLogsChecked(experimentEnv?.log);
+  }, [experimentEnv]);
   return (
     <Flex
       gap="24px"
@@ -85,7 +161,10 @@ export default function FormCheckout(props) {
               isDisabled={false}
               labelHidden={false}
               variation="default"
-              value={experimentEnv?.name}
+              value={nameValue}
+              onChange={(event) => {
+                setNameValue(event.target.value);
+              }}
               {...getOverrideProps(overrides, "Name")}
             ></TextField>
             <TextField
@@ -101,7 +180,10 @@ export default function FormCheckout(props) {
               isDisabled={false}
               labelHidden={false}
               variation="default"
-              value={experimentEnv?.description}
+              value={descriptionValue}
+              onChange={(event) => {
+                setDescriptionValue(event.target.value);
+              }}
               {...getOverrideProps(overrides, "Description")}
             ></TextField>
             <TextField
@@ -117,7 +199,10 @@ export default function FormCheckout(props) {
               isDisabled={false}
               labelHidden={false}
               variation="default"
-              value={experimentEnv?.region}
+              value={regionValue}
+              onChange={(event) => {
+                setRegionValue(event.target.value);
+              }}
               {...getOverrideProps(overrides, "Region")}
             ></TextField>
             <TextField
@@ -133,7 +218,10 @@ export default function FormCheckout(props) {
               isDisabled={false}
               labelHidden={false}
               variation="default"
-              value={experimentEnv?.type}
+              value={typeValue}
+              onChange={(event) => {
+                setTypeValue(event.target.value);
+              }}
               {...getOverrideProps(overrides, "Type")}
             ></TextField>
           </Flex>
@@ -168,10 +256,12 @@ export default function FormCheckout(props) {
               padding="0px 0px 0px 0px"
               label="Traces"
               size="default"
-              defaultChecked={false}
               isDisabled={false}
               labelPosition="end"
-              checked={experimentEnv?.traces}
+              checked={tracesChecked}
+              onChange={(event) => {
+                setTracesChecked(event.target.checked);
+              }}
               {...getOverrideProps(overrides, "Traces")}
             ></CheckboxField>
             <CheckboxField
@@ -184,10 +274,12 @@ export default function FormCheckout(props) {
               padding="0px 0px 0px 0px"
               label="Metrics"
               size="default"
-              defaultChecked={false}
               isDisabled={false}
               labelPosition="end"
-              checked={experimentEnv?.metrics}
+              checked={metricsChecked}
+              onChange={(event) => {
+                setMetricsChecked(event.target.checked);
+              }}
               {...getOverrideProps(overrides, "Metrics")}
             ></CheckboxField>
             <CheckboxField
@@ -200,10 +292,12 @@ export default function FormCheckout(props) {
               padding="0px 0px 0px 0px"
               label="Logs"
               size="default"
-              defaultChecked={false}
               isDisabled={false}
               labelPosition="end"
-              checked={experimentEnv?.log}
+              checked={logsChecked}
+              onChange={(event) => {
+                setLogsChecked(event.target.checked);
+              }}
               {...getOverrideProps(overrides, "Logs")}
             ></CheckboxField>
           </Flex>

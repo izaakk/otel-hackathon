@@ -39,8 +39,8 @@ export default function EnvForm() {
     <React.Fragment>
       <Title>Environment Fields</Title>
       <FormCheckout />
-      {/* <EnvironmentsCollection /> */}
-      <EnvDash />
+      <EnvironmentsCollection />
+      {/* <EnvDash /> */}
       {/* <Table size="small">
         <TableHead>
         </TableHead>

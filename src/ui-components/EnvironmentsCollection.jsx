@@ -25,7 +25,8 @@ export default function EnvironmentsCollection(props) {
       type="list"
       searchPlaceholder="Search..."
       direction="column"
-      justifyContent="stretch"
+      alignItems="stretch"
+      justifyContent="left"
       items={items || []}
       {...rest}
       {...getOverrideProps(overrides, "EnvironmentsCollection")}

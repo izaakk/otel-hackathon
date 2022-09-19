@@ -10,7 +10,7 @@ import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import Features4x1 from "./Features4x1";
 import { Flex } from "@aws-amplify/ui-react";
 export default function EnvDash(props) {
-  const { overrides, ...rest } = props;
+  const { EnvEntry, overrides, ...rest } = props;
   return (
     <Flex
       gap="0"

@@ -5,9 +5,12 @@
  **************************************************************************/
 
 import React from "react";
+import { ExperimentEnv } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type EnvDashProps = React.PropsWithChildren<Partial<FlexProps> & {
+    EnvEntry?: ExperimentEnv;
+} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
 export default function EnvDash(props: EnvDashProps): React.ReactElement;
