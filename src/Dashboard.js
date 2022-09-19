@@ -20,6 +20,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 import { ListItemText, ListItemButton } from '@mui/material';
 import Orders from './Orders';
 import { Amplify } from 'aws-amplify';
+import { EnvironmentsCollection } from './ui-components';
 
 // import { DataStore } from '@aws-amplify/datastore';
 // import { Tenant } from './models';
@@ -180,6 +181,7 @@ function Dashboard({signOut, user}) {
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Orders />
+                  {/* <EnvironmentsCollection /> */}
                 </Paper>
               </Grid>
             </Grid>

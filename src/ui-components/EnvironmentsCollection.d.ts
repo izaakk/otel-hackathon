@@ -6,12 +6,15 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ExperimentEnv } from "../models";
-import { FlexProps } from "@aws-amplify/ui-react";
-export declare type FormCheckoutProps = React.PropsWithChildren<Partial<FlexProps> & {
-    EnvName?: String;
-    experimentEnv?: ExperimentEnv;
+import { FormCheckoutProps } from "./FormCheckout";
+import { CollectionProps } from "@aws-amplify/ui-react";
+export declare type EnvironmentsCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+    items?: any[];
+    overrideItems?: (collectionItem: {
+        item: any;
+        index: number;
+    }) => FormCheckoutProps;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function FormCheckout(props: FormCheckoutProps): React.ReactElement;
+export default function EnvironmentsCollection(props: EnvironmentsCollectionProps): React.ReactElement;

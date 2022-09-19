@@ -6,18 +6,26 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useDataStoreDeleteAction,
+} from "@aws-amplify/ui-react/internal";
+import { ExperimentEnv } from "../models";
+import { schema } from "../models/schema";
 import {
   Button,
   CheckboxField,
   Divider,
   Flex,
-  SelectField,
-  Text,
   TextField,
 } from "@aws-amplify/ui-react";
 export default function FormCheckout(props) {
   const { EnvName, experimentEnv, overrides, ...rest } = props;
+  const createEnvOnClick = useDataStoreDeleteAction({
+    id: experimentEnv?.id,
+    model: ExperimentEnv,
+    schema: schema,
+  });
   return (
     <Flex
       gap="24px"
@@ -34,10 +42,11 @@ export default function FormCheckout(props) {
         alignItems="flex-start"
         grow="1"
         basis="837px"
-        height="737px"
+        height="658px"
         position="relative"
         padding="32px 0px 32px 0px"
         backgroundColor="rgba(255,255,255,1)"
+        as="form"
         {...getOverrideProps(overrides, "Frame 411")}
       >
         <Flex
@@ -48,7 +57,7 @@ export default function FormCheckout(props) {
           alignItems="center"
           grow="1"
           basis="837px"
-          height="673px"
+          height="594px"
           position="relative"
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Frame 313")}
@@ -63,23 +72,6 @@ export default function FormCheckout(props) {
             padding="0px 32px 0px 32px"
             {...getOverrideProps(overrides, "Frame 406")}
           >
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="400"
-              color="rgba(13,26,38,1)"
-              lineHeight="20px"
-              textAlign="left"
-              display="flex"
-              direction="column"
-              justifyContent="flex-start"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children="Info"
-              {...getOverrideProps(overrides, "Info")}
-            ></Text>
             <TextField
               display="flex"
               direction="column"
@@ -88,7 +80,7 @@ export default function FormCheckout(props) {
               position="relative"
               padding="0px 0px 0px 0px"
               label="Name"
-              placeholder="Placeholder"
+              placeholder="mySampleEnv"
               size="small"
               isDisabled={false}
               labelHidden={false}
@@ -104,7 +96,7 @@ export default function FormCheckout(props) {
               position="relative"
               padding="0px 0px 0px 0px"
               label="Description"
-              placeholder="Placeholder"
+              placeholder="Provide a brief description of your env here"
               size="small"
               isDisabled={false}
               labelHidden={false}
@@ -112,38 +104,38 @@ export default function FormCheckout(props) {
               value={experimentEnv?.description}
               {...getOverrideProps(overrides, "Description")}
             ></TextField>
-            <SelectField
+            <TextField
               display="flex"
               direction="column"
-              width="300px"
-              justifyContent="center"
+              width="619px"
               shrink="0"
               position="relative"
               padding="0px 0px 0px 0px"
               label="Region"
+              placeholder="us-west-1, us-west-2, us-east-1, or us-east-2"
               size="small"
               isDisabled={false}
               labelHidden={false}
               variation="default"
               value={experimentEnv?.region}
-              {...getOverrideProps(overrides, "SelectRegion")}
-            ></SelectField>
-            <SelectField
+              {...getOverrideProps(overrides, "Region")}
+            ></TextField>
+            <TextField
               display="flex"
               direction="column"
-              width="300px"
-              justifyContent="center"
+              width="619px"
               shrink="0"
               position="relative"
               padding="0px 0px 0px 0px"
               label="Type"
+              placeholder=""
               size="small"
               isDisabled={false}
               labelHidden={false}
               variation="default"
               value={experimentEnv?.type}
-              {...getOverrideProps(overrides, "SelectType")}
-            ></SelectField>
+              {...getOverrideProps(overrides, "Type")}
+            ></TextField>
           </Flex>
           <Divider
             height="1px"
@@ -166,23 +158,6 @@ export default function FormCheckout(props) {
             padding="0px 32px 0px 32px"
             {...getOverrideProps(overrides, "Frame 409")}
           >
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="400"
-              color="rgba(13,26,38,1)"
-              lineHeight="20px"
-              textAlign="left"
-              display="flex"
-              direction="column"
-              justifyContent="flex-start"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children="Telemetry Options"
-              {...getOverrideProps(overrides, "Telemetry Options")}
-            ></Text>
             <CheckboxField
               display="flex"
               width="fit-content"
@@ -192,7 +167,7 @@ export default function FormCheckout(props) {
               position="relative"
               padding="0px 0px 0px 0px"
               label="Traces"
-              size="small"
+              size="default"
               defaultChecked={false}
               isDisabled={false}
               labelPosition="end"
@@ -208,7 +183,7 @@ export default function FormCheckout(props) {
               position="relative"
               padding="0px 0px 0px 0px"
               label="Metrics"
-              size="small"
+              size="default"
               defaultChecked={false}
               isDisabled={false}
               labelPosition="end"
@@ -224,7 +199,7 @@ export default function FormCheckout(props) {
               position="relative"
               padding="0px 0px 0px 0px"
               label="Logs"
-              size="small"
+              size="default"
               defaultChecked={false}
               isDisabled={false}
               labelPosition="end"
@@ -256,6 +231,9 @@ export default function FormCheckout(props) {
             isDisabled={false}
             variation="primary"
             children="Create"
+            onClick={() => {
+              createEnvOnClick();
+            }}
             {...getOverrideProps(overrides, "CreateEnv")}
           ></Button>
         </Flex>

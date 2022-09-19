@@ -18,5 +18,4 @@ type Tenant @model @auth(rules: [{allow: public}, {allow: private}, {allow: owne
   businessunit: String!
   experiments: [ExperimentEnv] @hasMany(indexName: "byTenant", fields: ["id"])
   email: String!
-}
- 
+} 

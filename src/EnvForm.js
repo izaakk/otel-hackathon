@@ -6,7 +6,8 @@ import Title from './Title';
 import { ListItemButton, ListItemText, TableBody, TableRow } from '@mui/material';
 import { DataStore } from '@aws-amplify/datastore';
 import { ExperimentEnv } from './models';
-import { FormCheckout } from './ui-components';
+import { FormCheckout, EnvironmentsCollection } from './ui-components';
+import {  EnvDash } from './ui-components';
 
 // Form for user to create new environment
 
@@ -38,6 +39,8 @@ export default function EnvForm() {
     <React.Fragment>
       <Title>Environment Fields</Title>
       <FormCheckout />
+      {/* <EnvironmentsCollection /> */}
+      <EnvDash />
       {/* <Table size="small">
         <TableHead>
         </TableHead>

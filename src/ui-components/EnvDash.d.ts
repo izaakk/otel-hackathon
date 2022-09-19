@@ -6,12 +6,8 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ExperimentEnv } from "../models";
 import { FlexProps } from "@aws-amplify/ui-react";
-export declare type FormCheckoutProps = React.PropsWithChildren<Partial<FlexProps> & {
-    EnvName?: String;
-    experimentEnv?: ExperimentEnv;
-} & {
+export declare type EnvDashProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function FormCheckout(props: FormCheckoutProps): React.ReactElement;
+export default function EnvDash(props: EnvDashProps): React.ReactElement;

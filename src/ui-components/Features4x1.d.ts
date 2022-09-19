@@ -6,8 +6,11 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { ExperimentEnv } from "../models";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type Features4x1Props = React.PropsWithChildren<Partial<FlexProps> & {
+    experimentEnv?: ExperimentEnv;
+} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
 export default function Features4x1(props: Features4x1Props): React.ReactElement;
