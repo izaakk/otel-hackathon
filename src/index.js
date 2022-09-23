@@ -9,6 +9,8 @@ import CreateEnv from './CreateEnv';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import Authentication from './Authentication';
+
 
 import { Amplify, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -19,7 +21,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Dashboard />} />
+        <Route path='/' element={<Authentication />} />
+        <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/faq' element={<Faq />} />
         <Route path='/create-env' element={<CreateEnv />} />
